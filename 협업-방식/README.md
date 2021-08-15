@@ -1,3 +1,7 @@
+# 협업 방식
+
+<br>
+
 ## 👩‍👧‍👦Feature Branch Workflow
 
 기능별 브랜치를 만들어 작업하는 방식으로 Feature branch에서 기능 개발이 완료되면 Master branch에서 Feature branch를 Merge하는 방식으로 Workflow가 진행된다.
@@ -17,6 +21,8 @@
 - 제품 개발 단계에서는 좋으나, 제품 런칭 이후 관리가 어렵게 된다.
 
 ---
+
+<br>
 
 ## 👩‍👧‍👦Gitflow Workflow
 
@@ -41,6 +47,8 @@ Feature Branch Workflow보다 복잡하지만, 대형 프로젝트에 적용 할
 
 ---
 
+<br>
+
 ## 🔍 저장소 개념
 
 **중앙 원격(remote) 저장소**
@@ -49,11 +57,15 @@ Feature Branch Workflow보다 복잡하지만, 대형 프로젝트에 적용 할
 - 여러 명이 같은 프로젝트를 관리하는 데 사용하는 그룹 계정의 중립된 원격 저장소
 - 사용자와 저장소는 팀으로 관리되고 저장소의 권한 설정도 팀으로 관리한다.
 
+<br>
+
 **자신의 원격(remote) 저장소**
 
 - 인터넷이나 네트워크 어딘가에 있는 저장소
 - remote repository 라고 불린다. (또는 origin)
 - 파일이 GitHub 전용 서버에서 관리되는 원격 저장소
+
+<br>
 
 **로컬(local) 저장소**
 
@@ -62,7 +74,11 @@ Feature Branch Workflow보다 복잡하지만, 대형 프로젝트에 적용 할
 
 ---
 
+<br>
+
 **❗️여기서부터는 dongurami 서비스의 협업 방식인 gitflow workflow방식을 기반으로 설명되어 있습니다.** 
+
+<br>
 
 ## 1️⃣ 로컬 저장소 생성하기
 
@@ -78,6 +94,8 @@ git remote add upstream [Fork하기 전 중앙 원격 레포의 주소]
 git pull upstream master
 ```
 
+<br>
+
 > fetch와 pull의 차이
 
 - fetch: 원격 저장소의 데이터를 로컬에 가져오기만 하기
@@ -87,6 +105,8 @@ git pull upstream master
 pull = fetch + merge
 
 ---
+
+<br>
 
 ## 2️⃣ 새로운 기능 개발을 위해 격리된 브랜치 생성
 
@@ -100,20 +120,28 @@ pull = fetch + merge
 
 ---
 
+<br>
+
 ## 3️⃣ 원격 저장소에서 병합
 
 관리자가 PR 내용을 검토한 뒤 원격 저장소의 login branch로 merge 시킨다. 
 
 그 후 한 번 더 develop 브랜치로 merge 시켜준다.
 
+<br>
+
 > **feature branch** 
 - 각 기능을 맡은 팀원만 작업을 진행. 
 - 기능 구현을 완료 하였으면 즉시 삭제
+
+<br>
 
 > **develop branch** 
 - 각 기능들을 병합시켜 놓은 branch라고 볼 수 있다.
 - 팀원들이 작업한 기능이 계속 업로드되어 내용이 변경되기 때문에 자신의 로컬에서 작업 시작 전에 원격 
    저장소의 develop branch에서 pull을 당겨와 변경된 내용을 적용한 뒤 작업을 수행해야 한다.
+
+<br>
 
 feature branch에서 모든 기능을 구현하고, develop branch로 병합을 시켜줬으면 
 
@@ -123,6 +151,18 @@ master bracnh로 최종 병합을 해준다.
 - 서비스를 배포하기 위한 최종 branch
 
 ---
+
+<br>
+
+## ❗️주의 사항
+
+만약 원격 저장소 develop branch에서 변경된 내용을 Pull 당겨온 뒤 새로운 feature branch를 따서 작업하던 중 develop branch가 merge되어 내용이 수정된 경우
+
+⇒ 자신이 하던 작업을 완료한 뒤 일단 commit과 push를 한다. 그리고 다시 pull을 당겨오는데 만약 충돌이 난다면 해당 팀원과 상의한 뒤 내용을 수정해주면 된다. 
+
+---
+
+<br>
 
 ## 📝참고 자료
 
