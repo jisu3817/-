@@ -5,6 +5,9 @@
 - commit 실수를 줄일 수 있음.
 - Git 2.13.0 이상 버전을 지원
 
+<br>
+<br>
+
 ### 🔎 사용 방법
 
 1️⃣ husky 모듈 설치
@@ -12,6 +15,8 @@
 ```bash
 $ npm install husky --save-dev
 ```
+
+<br>
 
 2️⃣ 커밋되기 전에 Husky가 검사할 내용에 대해서 package.json에 추가
 
@@ -25,20 +30,32 @@ $ npm install husky --save-dev
 ... // 이어 작성될 코드들
 ```
 
+<br>
+
 husky가 커밋 전에 실행되기 때문에 위처럼 pre-commit을 설정 해주면 커밋할 때 등록된 명령어를 실행하고   자동으로 고쳐지지 않으면 에러를 띄워 커밋이 되지 않게 만들 수 있다. 
+
+<br>
 
 `eslint . --fix` : 현재 디렉토리의 모든 코드를 eslint를 사용해 자동으로 고침.
 
 `prettier --write` : prettier 규칙을 적용한 뒤 자동으로 고침.
 
+<br>
+
 **코드를 수정해야만 커밋이 가능한 환경이 설정** 
 
 ---
+
+<br>
+<br>
 
 ## ✔️ Lint-staged
 
 - husky는 모든 코드를 다 검사하기 때문에 상당히 비효율적임.
 - Lint-staged는 staging area에 들어간 코드들만 검사 해 효율적으로 코드 검사 가능.
+
+<br>
+<br>
 
 ### 🔎 사용 방법
 
@@ -47,6 +64,9 @@ husky가 커밋 전에 실행되기 때문에 위처럼 pre-commit을 설정 해
 ```bash
 $ npm install lint-staged --save-dev
 ```
+
+<br>
+<br>
 
 2️⃣ package.json 수정
 
@@ -62,5 +82,7 @@ $ npm install lint-staged --save-dev
 }, 
 ... // 이어 작성될 코드들
 ```
+
+<br>
 
 커밋 메시지 작성 전에 lint-staged를 실행해 내용이 변경된 파일 중 `.js 확장자`로 끝나는 파일만 린트로 코드 검사를 수행 (변경, 추가 파일만 검사)
